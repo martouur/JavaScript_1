@@ -108,8 +108,16 @@ switch(chosenNumber){
 
     case 7:
          //7- Mostrar por consola el número de chicos y chicas que hay en la clase.
-         console.log('The total number of boys and girls in the classroom is:')
-         console.log(students.length)
+         let female = 0;
+         let male = 0;
+         students.forEach(object => {
+             if (object.gender === 'female') {
+                 female++;
+             } else if (object.gender === 'male') {
+                 male++;
+             }
+         });
+        console.log('There are ' + female 'girls and ' + male 'boys in the classroom')                                   
     break;
        
     case 8:
@@ -120,9 +128,14 @@ switch(chosenNumber){
 
     case 9:
         //9- Mostrar por consola los nombres de los alumnos que tengan entre 20 y 25 años.
-        const between20And25 = students.age.filter(x => x.age>=20 && x.age<=25 );
-        console.log(between20And25);
-        //como se imprimen solo los names?
+        function young (students) {
+            students.forEach(object => {
+                if(object.age > 20 && object.age < 25) {
+                console.log('The students between 20 and 25 are:' object.name);
+    }
+  });
+}
+     
         break;
 
     case 10:
@@ -132,7 +145,7 @@ switch(chosenNumber){
             //- género aleatorio.
             //- listado de calificaciones vacío.
                 //¡OJO!, el nombre y el género tienen que ir acordes.
-        //HEMOS HECHO TRAMPA!
+   
         const randomName = availableFemaleNames[Math.floor(Math.random() * availableFemaleNames.length)]
         
         function randomNumber(min, max) {
@@ -176,19 +189,40 @@ switch(chosenNumber){
 
     case 13:
         // 13- Mostrar por consola la edad media de las chicas de la clase.
-        
-        
+        function MedioEdadChicas(students) {
+          let stAge = [];
+          students.forEach(object => {
+            if(object.gender === "female") {
+              stAge.push(object.age);
+            }
+          });
+          
+          let sum = 0;
+          for (let i = 0; i < stAge.length; i++){  
+            sum = sum + stAge[i];
+          }
+          const faverage = sum/stAge.length;
+         console.log('The average of the girls' age in the classroom is:' + faverage)
+
+               
         break;
 
     case 14:
         //14- Añadir nueva nota a los alumnos. Por cada alumno de la clase, tendremos que calcular una nota de forma aleatoria(número entre 0 y 10) y añadirla a su listado de notas.
         function randomCalification(min, max) {
-        const randomNumber = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
+        const randomNumber = Math.floor(Math.random() * (max - min)) + min;
         return randomNumber;
+        
+        function getScore(students) {
+            students.forEach(object) => {
+                const newScore = randomCalification(0, 10);
+                object.examScores = newScore;
+            });
+            consule.log(students);
           }
         
           
-        console.log(students.examScore.push(randomScore))
+        console.log(getScore(students))
         break;
 
     case 15:
