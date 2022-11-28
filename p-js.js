@@ -1,6 +1,5 @@
 import readline from "readline";
 
-
 const students = [{
     age: 32,
     examScores: [],
@@ -13,6 +12,7 @@ const students = [{
     gender: 'female',
     name: 'silvia'
   }]
+
   
 const availableMaleNames = ['pepe', 'juan', 'victor', 'Leo', 'francisco', 'carlos'];
 const availableFemaleNames = ['cecilia', 'ana', 'luisa', 'silvia', 'isabel', 'virginia'];
@@ -26,6 +26,10 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+function isInt(str) {
+    // returns a boolean
+    return /^[0-9]+$/.test(str);
+  }
 
 function getNumberFromConsole() {
     const promise = new Promise((resolve, reject) => {
@@ -117,7 +121,7 @@ switch(chosenNumber){
                  male++;
              }
          });
-        console.log('There are ' + female 'girls and ' + male 'boys in the classroom')                                   
+        console.log('There are ' + female + 'girls and ' + male + 'boys in the classroom')                                   
     break;
        
     case 8:
@@ -131,7 +135,7 @@ switch(chosenNumber){
         function young (students) {
             students.forEach(object => {
                 if(object.age > 20 && object.age < 25) {
-                console.log('The students between 20 and 25 are:' object.name);
+                console.log('The students between 20 and 25 are:' + object.name);
     }
   });
 }
@@ -202,8 +206,8 @@ switch(chosenNumber){
             sum = sum + stAge[i];
           }
           const faverage = sum/stAge.length;
-         console.log('The average of the girls' age in the classroom is:' + faverage)
-
+         console.log('The average of the girls' + age + ' in the classroom is:' + faverage)
+        }
                
         break;
 
@@ -214,13 +218,13 @@ switch(chosenNumber){
         return randomNumber;
         
         function getScore(students) {
-            students.forEach(object) => {
+            students.forEach((object) => {
                 const newScore = randomCalification(0, 10);
                 object.examScores = newScore;
             });
             consule.log(students);
           }
-        
+        }
           
         console.log(getScore(students))
         break;
@@ -231,8 +235,8 @@ switch(chosenNumber){
 
         function sortName(students) {
             students.sort((a, b) => {
-                const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-                const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+                const nameA = a.name.toUpperCase(); 
+                const nameB = b.name.toUpperCase(); 
                 if (nameA < nameB) {
                     return -1;
                 }
